@@ -29,6 +29,8 @@ public class FlightController {
             String fromAirportString = int_fromAirport.toString();
             String toAirportString = int_toAirport.toString();
 
+            Flight flight = new Flight(i,descriptionString,fromAirportString,toAirportString,FlightStatus.ONTIME);
+        /*
             //Usiamo builder con tutto il neccessario **check in Entity Flight**
 
             Flight flight = Flight.builder()
@@ -37,7 +39,7 @@ public class FlightController {
                     .toAirport(toAirportString)
                     .flightStatus(FlightStatus.ONTIME)
                     .build();
-
+        */
             flightRepository.saveAndFlush(flight);
         }
         return flightRepository.findAll();
@@ -52,7 +54,7 @@ public class FlightController {
     //Creazione End-Point Voli ONTIME
     @GetMapping("/retrivieng/ontime")
     public List<Flight> flightStatusOnTime() {
-        return flightRepository.searchFlights(FlightStatus.DELAYED.name());
+        return flightRepository.searchFlights(FlightStatus.ONTIME.name());
         //.name --> prende il valore dall'enum (tipo toString)
     }
 
@@ -74,4 +76,4 @@ public class FlightController {
 }
 
 
-//sotto le 5 stelle è capitalismo <3
+//Commentate tutte le parti con il Builder

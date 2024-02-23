@@ -10,11 +10,13 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+/*
 @Builder //Utilizzata per la creazione di un design pattern Builder
+*/
 public class Flight {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
 
     private String description;
