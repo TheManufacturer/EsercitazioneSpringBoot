@@ -1,0 +1,34 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/toninobase
+    username: root
+    password: Sivagio-9-9
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database: mysql
+    show_sql: true
+    hibernate:
+      ddl-auto: update
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: root
+    password: 1234!
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    database: h2
+    show_sql: true
+    hibernate:
+      ddl-auto: create-drop
