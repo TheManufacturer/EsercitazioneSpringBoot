@@ -17,7 +17,7 @@ public class FlightController {
 
     //Creazione End-Point Creazione "Voli" Random
     @PostMapping("/provisioning")
-    public List<Flight> fillListOfFlight() {
+    public boolean fillListOfFlight() {
         for (int i = 0; i <= 50; i++) {
             Random randomNumber = new Random();
 
@@ -29,8 +29,8 @@ public class FlightController {
             String fromAirportString = int_fromAirport.toString();
             String toAirportString = int_toAirport.toString();
 
-            Flight flight = new Flight(i,descriptionString,fromAirportString,toAirportString,FlightStatus.ONTIME);
-        /*
+            //Flight flight = new Flight(i,descriptionString,fromAirportString,toAirportString,FlightStatus.ONTIME);
+
             //Usiamo builder con tutto il neccessario **check in Entity Flight**
 
             Flight flight = Flight.builder()
@@ -39,10 +39,10 @@ public class FlightController {
                     .toAirport(toAirportString)
                     .flightStatus(FlightStatus.ONTIME)
                     .build();
-        */
+
             flightRepository.saveAndFlush(flight);
         }
-        return flightRepository.findAll();
+        return true;
     }
 
     //Creazione End-Point GET tutti i voli

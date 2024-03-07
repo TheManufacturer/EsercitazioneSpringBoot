@@ -1,0 +1,32 @@
+server:
+  port: 4500
+myCustomVar:
+  devName: Antonio
+  authCode: xyz458
+  welcomeMsg: Hello from everywhere
+---
+environment: production
+myCustomVar:
+  devName: Tonio
+  authCode: xyz457
+  welcomeMsg: Hello from Prod
+spring:
+  config:
+    activate:
+      on-profile: prod
+name: prod-YAML
+server:
+  port: 5000
+---
+environment: testing
+myCustomVar:
+  devName: notInTest
+  authCode: NoNeedAuthCodeHere
+  welcomeMsg: Hello from Test
+spring:
+  config:
+    activate:
+      on-profile: test
+name: test-YAML
+server:
+  port: 4000
